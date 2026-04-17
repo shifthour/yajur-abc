@@ -66,7 +66,9 @@
         }
         
         .section-header {
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 4rem;
             cursor: pointer;
             position: relative;
@@ -84,20 +86,14 @@
             font-size: 2.5rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            display: inline-block;
         }
 
         .section-header .toggle-icon {
-            display: inline-block;
-            margin-left: 1rem;
-            font-size: 1.5rem;
-            font-weight: bold;
             transition: transform var(--transition-speed) ease;
-            vertical-align: middle;
         }
 
         .section.collapsed .section-header .toggle-icon {
-            transform: rotate(-45deg);
+            transform: rotate(-90deg);
         }
 
         .section-content {
@@ -784,7 +780,11 @@
         <section id="about" class="section" data-nav="About">
             <div class="container">
                 <div class="section-header animate-target" data-section-toggle="about">
-                    <h2>About Arch Street <span class="toggle-icon">+</span></h2>
+                    <div class="flex items-center justify-center flex-grow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8" style="color: var(--primary-color);"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                        <h2 class="ml-4">About Arch Street</h2>
+                    </div>
+                    <span class="toggle-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
                 </div>
                 <div class="section-content">
                     <p class="animate-target text-center max-w-3xl mx-auto text-lg" style="color: var(--text-light);">
@@ -798,7 +798,11 @@
         <section id="key-metrics" class="section" data-nav="Metrics">
             <div class="container">
                 <div class="section-header animate-target" data-section-toggle="key-metrics">
-                    <h2>Key Metrics <span class="toggle-icon">+</span></h2>
+                    <div class="flex items-center justify-center flex-grow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8" style="color: var(--primary-color);"><line x1="12" y1="20" x2="12" y2="4"></line><polyline points="18 10 12 4 6 10"></polyline></svg>
+                        <h2 class="ml-4">Key Metrics</h2>
+                    </div>
+                    <span class="toggle-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
                 </div>
                 <div class="section-content">
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -831,21 +835,31 @@
         <section id="charts" class="section" data-nav="Charts">
             <div class="container">
                 <div class="section-header animate-target" data-section-toggle="charts">
-                    <h2>Data & Projections <span class="toggle-icon">+</span></h2>
+                    <div class="flex items-center justify-center flex-grow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8" style="color: var(--primary-color);"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+                        <h2 class="ml-4">Data & Projections</h2>
+                    </div>
+                    <span class="toggle-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
                 </div>
                 <div class="section-content">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                         <div class="animate-target">
                             <h3 class="text-2xl font-semibold text-center mb-4" style="font-family: var(--font-heading);">Asset Allocation</h3>
-                            <canvas id="assetAllocationChart"></canvas>
+                            <div class="relative mx-auto h-80 w-80">
+                                <canvas id="assetAllocationChart"></canvas>
+                            </div>
                         </div>
                         <div class="animate-target">
                             <h3 class="text-2xl font-semibold text-center mb-4" style="font-family: var(--font-heading);">Financial Projections (in Millions)</h3>
-                            <canvas id="financialProjectionsChart"></canvas>
+                            <div class="relative h-80">
+                                <canvas id="financialProjectionsChart"></canvas>
+                            </div>
                         </div>
                         <div class="animate-target lg:col-span-2 mt-8">
                             <h3 class="text-2xl font-semibold text-center mb-4" style="font-family: var(--font-heading);">Assets Under Management (AUM) Growth</h3>
-                            <canvas id="aumGrowthChart"></canvas>
+                            <div class="relative h-96">
+                                <canvas id="aumGrowthChart"></canvas>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -856,7 +870,11 @@
         <section id="investment-highlights" class="section" data-nav="Highlights">
             <div class="container">
                 <div class="section-header animate-target" data-section-toggle="investment-highlights">
-                    <h2>Investment Highlights <span class="toggle-icon">+</span></h2>
+                    <div class="flex items-center justify-center flex-grow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8" style="color: var(--primary-color);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <h2 class="ml-4">Investment Highlights</h2>
+                    </div>
+                    <span class="toggle-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
                 </div>
                 <div class="section-content">
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -893,7 +911,11 @@
         <section id="competitive-advantages" class="section" data-nav="Advantages">
             <div class="container">
                 <div class="section-header animate-target" data-section-toggle="competitive-advantages">
-                    <h2>Competitive Advantages <span class="toggle-icon">+</span></h2>
+                    <div class="flex items-center justify-center flex-grow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8" style="color: var(--primary-color);"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        <h2 class="ml-4">Competitive Advantages</h2>
+                    </div>
+                    <span class="toggle-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
                 </div>
                 <div class="section-content">
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -930,7 +952,11 @@
         <section id="additional-details" class="section" data-nav="Details">
             <div class="container">
                 <div class="section-header animate-target" data-section-toggle="additional-details">
-                    <h2>Company & Case Study Details <span class="toggle-icon">+</span></h2>
+                    <div class="flex items-center justify-center flex-grow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8" style="color: var(--primary-color);"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        <h2 class="ml-4">Company & Case Study Details</h2>
+                    </div>
+                    <span class="toggle-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
                 </div>
                 <div class="section-content">
                     <div class="additional-section-card animate-target" data-modal-title="Company Overview Details" data-modal-content="<p>Arch Street is a Minority-Owned, full-service real estate investment firm. It has 20+ Years investing in Business-Critical, Single-Tenant, Long-term Leased Assets (the “Investment Strategy”). Arch Business Critical Income Fund I ('ABC Income Fund I') will represent the first opportunity for institutional investors to participate as limited partners in a closed-end fund vehicle managed by Arch Street as general partner.</p><h4>Key Diversity & Experience Metrics:</h4><ul><li>Senior Management Team Average Real Estate Experience: 20+ Years</li><li>Senior Management Team Average Years Working Together: 16+ Years</li><li>Senior Management Team Diversity: 80% Diverse</li><li>Overall Team Diversity (Women or Minorities): 50%+</li></ul>">
@@ -961,7 +987,11 @@
         <section id="fund-overview" class="section" data-nav="Fund">
             <div class="container">
                 <div class="section-header animate-target" data-section-toggle="fund-overview">
-                    <h2>ABC Income Fund I Overview <span class="toggle-icon">+</span></h2>
+                    <div class="flex items-center justify-center flex-grow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8" style="color: var(--primary-color);"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                        <h2 class="ml-4">ABC Income Fund I Overview</h2>
+                    </div>
+                    <span class="toggle-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
                 </div>
                 <div class="section-content">
                     <p class="intro-text animate-target">Arch Street Capital Advisors is seeking $200 million to invest in business-critical, single-tenant, long- term leased assets. Over a 20-year track record of investing, Arch Street has demonstrated the benefits of acquiring single-tenant assets and earning a significant portion of the investments' overall return through current cash flow.</p>
@@ -1021,7 +1051,11 @@
         <section id="transaction-overview" class="section" data-nav="Transaction">
             <div class="container">
                 <div class="section-header animate-target" data-section-toggle="transaction-overview">
-                    <h2>Transaction Overview <span class="toggle-icon">+</span></h2>
+                    <div class="flex items-center justify-center flex-grow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8" style="color: var(--primary-color);"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        <h2 class="ml-4">Transaction Overview</h2>
+                    </div>
+                    <span class="toggle-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
                 </div>
                 <div class="section-content">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -1046,7 +1080,11 @@
         <section id="team" class="section" data-nav="Team">
             <div class="container">
                 <div class="section-header animate-target" data-section-toggle="team">
-                    <h2>Management Team <span class="toggle-icon">+</span></h2>
+                    <div class="flex items-center justify-center flex-grow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8" style="color: var(--primary-color);"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        <h2 class="ml-4">Management Team</h2>
+                    </div>
+                    <span class="toggle-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
                 </div>
                 <div class="section-content">
                     <div class="team-grid">
@@ -1209,28 +1247,41 @@
         });
 
         // --- COUNTER ANIMATION WITH GSAP ---
-        gsap.utils.toArray('.value[data-target]').forEach(counter => {
+        function animateCounter(counter) {
             const target = +counter.dataset.target;
             const prefix = counter.dataset.prefix || '';
             const suffix = counter.dataset.suffix || '';
             const isFloat = target % 1 !== 0;
-
             let obj = { val: 0 };
+            gsap.to(obj, {
+                val: target,
+                duration: 2,
+                ease: "power2.out",
+                onUpdate: () => {
+                    counter.textContent = prefix + (isFloat ? obj.val.toFixed(1) : Math.floor(obj.val)) + suffix;
+                }
+            });
+        }
 
+        // Animate hero stats on load
+        gsap.utils.toArray('.hero-stat .value[data-target]').forEach(counter => {
+            gsap.from(counter, {
+                textContent: 0,
+                duration: 2,
+                ease: "power2.out",
+                snap: { textContent: 1 },
+                onStart: () => animateCounter(counter),
+                delay: 0.7
+            });
+        });
+
+        // Animate other counters on scroll
+        gsap.utils.toArray('#key-metrics .metric-value[data-target]').forEach(counter => {
             ScrollTrigger.create({
                 trigger: counter,
                 start: "top 90%",
                 once: true,
-                onEnter: () => {
-                    gsap.to(obj, {
-                        val: target,
-                        duration: 2,
-                        ease: "power2.out",
-                        onUpdate: () => {
-                            counter.textContent = prefix + (isFloat ? obj.val.toFixed(1) : Math.floor(obj.val)) + suffix;
-                        }
-                    });
-                }
+                onEnter: () => animateCounter(counter)
             });
         });
 
@@ -1263,7 +1314,7 @@
                 },
                 options: {
                     responsive: true,
-                    maintainAspectRatio: true,
+                    maintainAspectRatio: false,
                 }
             });
         }
@@ -1289,6 +1340,7 @@
                 },
                 options: {
                     responsive: true,
+                    maintainAspectRatio: false,
                     scales: {
                         y: { beginAtZero: true, grid: { color: chartGridColor } },
                         x: { grid: { display: false } }
@@ -1317,6 +1369,7 @@
                 },
                 options: {
                     responsive: true,
+                    maintainAspectRatio: false,
                     scales: {
                         y: { beginAtZero: false, grid: { color: chartGridColor } },
                         x: { grid: { display: false } }
@@ -1400,7 +1453,9 @@
         }
         
         document.querySelectorAll('.section').forEach((section, index) => {
-            if (index > 0) { section.classList.add('collapsed'); }
+            if (index > 0 && section.id !== 'investment-highlights') { 
+                section.classList.add('collapsed'); 
+            }
         });
 
         sectionHeaders.forEach(header => {
